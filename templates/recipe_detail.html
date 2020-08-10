@@ -8,15 +8,23 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-        <title>{{ hello }}!</title>
+        {% if not recipe %}
+            <title>Recipe Not Found<title>
+        {% else %}
+            <title>{{ recipe.title }}</title>
+        {% endif %}
     </head>
     <body>
         <div class="container">
-            {% for recipe in recipes %}
-                <li>
-                    <a href="/recipe/{{ recipe.id }}">{{ recipe.title }}</a>
-                </li>
-            {% endfor %}
+            {% if not recipe %}
+                <h1>The recipe you are trying to look for doesn't seem to exist. :(</h1>
+            {% else %}
+                <h2>{{ recipe.title }}</h2>
+                <h4><a href="/author/{{ recipe.author.id }}">{{ recipe.author.name }}</a></h4>
+                <p>{{ recipe.description }} | {{ recipe.time_required}}</p>
+                <br>
+                <p>{{ recipe.instructions }}</p>
+            {% endif %}
         </div>
 
         <!-- Optional JavaScript -->
