@@ -41,9 +41,9 @@
                 <h2>{{ author.name }}</h2>
                 <p>{{ author.bio }}</p>
                 <br>
-                <ul>
+                <ul class="list-group">
                 {% for recipe in recipes %}
-                    <li>
+                    <li class="list-group-item list-group-item-action">
                         <a href="/recipe/{{ recipe.id }}">{{ recipe.title }}</a>
                     </li>
                 {% endfor %}
