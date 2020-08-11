@@ -8,7 +8,7 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-        <title>Recipe Box!</title>
+        <title>New {{ name }}</title>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -18,27 +18,33 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/addauthor/">New Author</a>
+                        {% if name == "author" %}
+                            <a class="nav-link active" href="/addauthor/">New Author <span class="sr-only">(current)</span></a>
+                        {% else %}
+                            <a class="nav-link" href="/addauthor/">New Author</a>
+                        {% endif %}
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/addrecipe/">New Article</a>
+                        {% if name == "recipe" %}
+                            <a class="nav-link active" href="/addrecipe/">New Article <span class="sr-only">(current)</span></a>
+                        {% else %}
+                            <a class="nav-link" href="/addrecipe/">New Article</a>
+                        {% endif %}
                     </li>
                 </ul>
             </div>
         </nav>
         <br>
         <div class="container">
-            <ul class="list-group list-group-flush">
-                {% for recipe in recipes %}
-                    <li class="list-group-item list-group-item-action">
-                        <a href="/recipe/{{ recipe.id }}">{{ recipe.title }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Submit!">
+            </form>
         </div>
 
         <!-- Optional JavaScript -->
