@@ -18,4 +18,8 @@ def recipe_detail(request, recipe_id):
 
 def author_detail(request, author_id):
     author = Author.objects.filter(id=author_id).first()
-    return render(request, 'author_detail.html', {"author": author})
+    recipes = Recipe.objects.filter(author=author.id).all()
+    return render(request, 'author_detail.html', {
+        "author": author,
+        "recipes": recipes
+    })

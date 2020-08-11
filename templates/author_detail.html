@@ -21,6 +21,14 @@
             {% else %}
                 <h2>{{ author.name }}</h2>
                 <p>{{ author.bio }}</p>
+                <br>
+                <ul>
+                {% for recipe in recipes %}
+                    <li>
+                        <a href="/recipe/{{ recipe.id }}">{{ recipe.title }}</a>
+                    </li>
+                {% endfor %}
+                </ul>
             {% endif %}
         </div>
 

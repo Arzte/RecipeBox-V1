@@ -20,7 +20,7 @@ from homepage.views import index, recipe_detail, author_detail
 
 urlpatterns = [
     path('', index),
-    path('recipe/<int:recipe_id>', recipe_detail),
-    path('author/<int:author_id>', author_detail),
+    path('recipe/<int:recipe_id>/', recipe_detail),
+    path('author/<int:author_id>/', author_detail),
     path('admin/', admin.site.urls),
 ]
