@@ -124,3 +124,5 @@ STATIC_URL = '/static/'
 # App Configuration
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOGIN_URL = '/login'

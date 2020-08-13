@@ -27,6 +27,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/addrecipe/">New Article</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout/">Logout</a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -40,6 +43,9 @@
                 {% endfor %}
             </ul>
         </div>
+
+        <!-- TODO: Remove me -->
+        <p>Am I Authenticated? {{ request.user.is_authenticated }}</p>
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

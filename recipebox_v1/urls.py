@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from homepage.views import index, recipe_detail, author_detail, add_recipe, add_author
+from homepage.views import index, recipe_detail, author_detail, add_recipe, add_author, login_view, logout_view
 
 urlpatterns = [
     path('', index, name='homepage'),
@@ -24,5 +24,7 @@ urlpatterns = [
     path('author/<int:author_id>/', author_detail),
     path('addrecipe/', add_recipe, name='addrecipe'),
     path('addauthor/', add_author, name='addauthor'),
+    path('login/', login_view, name='loginview'),
+    path('logout/', logout_view, name='logoutview'),
     path('admin/', admin.site.urls),
 ]

@@ -1,9 +1,11 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 """
 Author
 - Name (CharField)
 - Bio (TextField)
+- User (OneToOneField -> User)
 
 Recipe
 - Title (CharField)
@@ -17,6 +19,7 @@ Recipe
 class Author(models.Model):
     name = models.CharField(max_length=80)
     bio = models.TextField()
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
