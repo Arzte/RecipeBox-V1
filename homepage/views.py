@@ -23,13 +23,14 @@ def author_detail(request, author_id):
     return render(request, 'author_detail.html', {
         "author": author,
         "recipes": recipes
+    })
 
 
 def add_recipe(request):
     if request.method == 'POST':
-        form=AddRecipeForm(request.POST)
+        form = AddRecipeForm(request.POST)
         if form.is_valid():
-            data=form.cleaned_data
+            data = form.cleaned_data
             Recipe.objects.create(
                 title=data.get('title'),
                 author=data.get('author'),
@@ -39,7 +40,7 @@ def add_recipe(request):
             )
         return HttpResponseRedirect(reverse("homepage"))
 
-    form=AddRecipeForm()
+    form = AddRecipeForm()
     return render(request, 'generic_form.html', {
         "form": form,
         "name": "recipe"
@@ -48,16 +49,16 @@ def add_recipe(request):
 
 def add_author(request):
     if request.method == 'POST':
-        form=AddAuthorForm(request.POST)
+        form = AddAuthorForm(request.POST)
         if form.is_valid():
-            data=form.cleaned_data
+            data = form.cleaned_data
             Author.objects.create(
                 name=data.get('name'),
                 bio=data.get('bio')
             )
         return HttpResponseRedirect(reverse("homepage"))
 
-    form=AddAuthorForm()
+    form = AddAuthorForm()
     return render(request, 'generic_form.html', {
         "form": form,
         "name": "author"
