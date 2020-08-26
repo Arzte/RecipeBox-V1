@@ -68,6 +68,7 @@ def add_author(request):
             user.author = Author.objects.create(
                 name=data.get('name'),
                 bio=data.get('bio'),
+                user=user
             )
 
             login(request, user)
