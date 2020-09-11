@@ -148,10 +148,10 @@ def add_favorite(request, recipe_id):
         author = request.user.author
         favorite = Author.objects.get(
             user=request.user).favorite_recipe.get(id=recipe_id)
-        # breakpoint()
+
     except ObjectDoesNotExist:
         favorite = None
-    # breakpoint()
+
     if not favorite:
         author.favorite_recipe.add(recipe)
         return HttpResponseRedirect(reverse("recipedetail", args=[recipe_id]))
