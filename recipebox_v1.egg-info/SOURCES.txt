@@ -1,0 +1,11 @@
+setup.py
+recipebox_v1/__init__.py
+recipebox_v1/asgi.py
+recipebox_v1/settings.py
+recipebox_v1/urls.py
+recipebox_v1/wsgi.py
+recipebox_v1.egg-info/PKG-INFO
+recipebox_v1.egg-info/SOURCES.txt
+recipebox_v1.egg-info/dependency_links.txt
+recipebox_v1.egg-info/requires.txt
+recipebox_v1.egg-info/top_level.txt
